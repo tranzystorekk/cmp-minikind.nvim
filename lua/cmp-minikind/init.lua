@@ -81,8 +81,8 @@ local format = function(kind)
   local formatted_components = {}
 
   for _, component in ipairs(components) do
-    local fmt = modifiers[component](kind)
-    table.insert(formatted_components, fmt)
+    local display = modifiers[component](kind)
+    table.insert(formatted_components, display)
   end
 
   return table.concat(formatted_components, separator)
