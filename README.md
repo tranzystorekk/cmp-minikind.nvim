@@ -6,6 +6,8 @@
 
 Add icons to your `nvim-cmp` LSP completions!
 
+Inspiration taken from [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
+
 ## Dependencies
 
 - [mini.icons](https://github.com/echasnovski/mini.icons)
