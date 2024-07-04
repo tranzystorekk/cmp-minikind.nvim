@@ -1,5 +1,7 @@
 # cmp-minikind
 
+![Demo screenshot](./assets/demo.png)
+
 ## About
 
 Add icons to your `nvim-cmp` LSP completions!
