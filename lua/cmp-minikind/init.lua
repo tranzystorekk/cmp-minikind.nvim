@@ -22,7 +22,9 @@ function H.setup_config(config)
   vim.validate {
     components = { config.components, "table" },
     separator = { config.separator, "string" },
+    mappings = { config.mappings, "table" },
   }
+  config.mappings = vim.tbl_deep_extend("force", vim.deepcopy(H.default_mappings), config.mappings or {})
 
   return config
 end
@@ -32,7 +34,7 @@ function H.apply_config(config)
 end
 
 -- cmp -> mini kind mappings
-local mini_mappings = {
+H.default_mappings = {
   ["Text"] = "text",
   ["Method"] = "method",
   ["Function"] = "function",
@@ -61,7 +63,7 @@ local mini_mappings = {
 }
 
 local mapped_kind = function(kind)
-  return mini_mappings[kind] or ""
+  return M.config.mappings[kind] or ""
 end
 
 local modifiers = {
@@ -97,6 +99,7 @@ end
 M.config = {
   components = { "symbol", "text" },
   separator = " ",
+  mappings = {},
 }
 
 H.default_config = M.config
