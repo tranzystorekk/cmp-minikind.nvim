@@ -31,46 +31,12 @@ function H.apply_config(config)
   M.config = config
 end
 
--- cmp -> mini kind mappings
-local mini_mappings = {
-  ["Text"] = "text",
-  ["Method"] = "method",
-  ["Function"] = "function",
-  ["Constructor"] = "constructor",
-  ["Field"] = "field",
-  ["Variable"] = "variable",
-  ["Class"] = "class",
-  ["Interface"] = "interface",
-  ["Module"] = "module",
-  ["Property"] = "property",
-  ["Unit"] = "unit",
-  ["Value"] = "value",
-  ["Enum"] = "enum",
-  ["Keyword"] = "keyword",
-  ["Snippet"] = "snippet",
-  ["Color"] = "color",
-  ["File"] = "file",
-  ["Reference"] = "reference",
-  ["Folder"] = "folder",
-  ["EnumMember"] = "enumMember",
-  ["Constant"] = "constant",
-  ["Struct"] = "struct",
-  ["Event"] = "event",
-  ["Operator"] = "operator",
-  ["TypeParameter"] = "typeParameter",
-}
-
-local mapped_kind = function(kind)
-  return mini_mappings[kind] or ""
-end
-
 local modifiers = {
   ["text"] = function(kind)
     return kind
   end,
   ["symbol"] = function(kind)
-    local mapped = mapped_kind(kind)
-    local icon, _ = H.icon_provider("lsp", mapped)
+    local icon, _ = H.icon_provider("lsp", kind)
     return icon
   end,
 }
@@ -89,8 +55,7 @@ local format = function(kind)
 end
 
 local hl_group = function(kind, fallback_hl)
-  local mapped = mapped_kind(kind)
-  local _, hl = H.icon_provider("lsp", mapped, fallback_hl)
+  local _, hl = H.icon_provider("lsp", kind, fallback_hl)
   return hl
 end
 
