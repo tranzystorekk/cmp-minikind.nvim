@@ -47,5 +47,9 @@ Make sure `mini.icons` is enabled in your config.
 
   -- String to separate the components with
   separator = " ",
+
+  -- Additional mappings from nvim-cmp kinds to mini.icons names
+  -- e.g. { ["Copilot"] = "copilot", }
+  mappings = {},
 }
 ```
