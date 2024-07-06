@@ -10,6 +10,8 @@ Inspiration taken from [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
 
 ## Dependencies
 
+Use `:checkhealth cmp-minikind` to verify these are satisfied:
+
 - [mini.icons](https://github.com/echasnovski/mini.icons)
 
 ## Installation
