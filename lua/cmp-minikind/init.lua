@@ -11,7 +11,8 @@ H.icon_provider = (function()
 
   -- we can ignore the fallback highlight and proxy MiniIcons
   return function(category, name, _)
-    return MiniIcons.get(category, name)
+    local icon, hl, _ = MiniIcons.get(category, name)
+    return icon, hl
   end
 end)()
 
