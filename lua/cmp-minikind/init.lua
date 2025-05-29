@@ -17,13 +17,11 @@ H.icon_provider = (function()
 end)()
 
 function H.setup_config(config)
-  vim.validate { config = { config, "table", true } }
+  vim.validate("config", config, "table", true)
   config = vim.tbl_deep_extend("force", vim.deepcopy(H.default_config), config or {})
 
-  vim.validate {
-    components = { config.components, "table" },
-    separator = { config.separator, "string" },
-  }
+  vim.validate("components", config.components, "table")
+  vim.validate("separator", config.separator, "string")
 
   return config
 end
